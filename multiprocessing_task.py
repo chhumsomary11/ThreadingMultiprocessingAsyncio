@@ -53,3 +53,9 @@ if __name__ == "__main__":
 
     # Output the number of primes found
     print(f"Found {len(primes)} prime numbers.")
+    print(chunk_size)
+    
+    
+      # Split primes into chunks for async file writing
+    prime_chunks = [primes[i:i+5] for i in range(0, len(primes), 5)]  # Chunk size of 5
+    print(prime_chunks)
