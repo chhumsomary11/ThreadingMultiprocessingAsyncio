@@ -32,13 +32,10 @@ def main():
 
     # Step 5: Run async tasks
     print("Running async I/O tasks to write primes to files...")
-    prime_chunks = [primes[i:i+5] for i in range(0, len(primes), 5)]  # Chunk size of 5
-    file_data_pairs = [
-        (f"numbers.txt", chunk) 
-        for i, chunk in enumerate(prime_chunks)
-    ]
     
-    asyncio.run(async_task.run_async_tasks(file_data_pairs, duration_per_task=2))
-
+    
+    prime_chunks = [primes[i:i+5] for i in range(0, len(primes), 5)]  # Chunk size of 5
+    file_data_pairs = [(f"primes_chunk_{i+1}.txt", chunk) for i, chunk in enumerate(prime_chunks)]
+    asyncio.run(async_task.run_async_tasks(file_data_pairs, 3))
 if __name__ == "__main__":
     main()

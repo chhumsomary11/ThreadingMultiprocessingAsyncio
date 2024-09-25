@@ -50,6 +50,7 @@ if __name__ == "__main__":
 
     # Find all primes in the numbers using multiprocessing
     primes = find_primes_in_range(numbers, chunk_size)
+    # print(primes)
 
     # Output the number of primes found
     print(f"Found {len(primes)} prime numbers.")
